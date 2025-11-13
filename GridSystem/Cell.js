@@ -10,8 +10,14 @@ class Cell {
   
   isEmpty - boolean: theres nothing in the cell, by default is true.
   */
-  constructor(position) {
+  constructor(position, holdingGrid) {
     this.position = position;
+    this.holdingGrid = holdingGrid;
     this.isEmpty = true;
+  }
+
+  placeObject(object) {
+    this.heldObject = object;
+    this.isEmpty = false;
   }
 }

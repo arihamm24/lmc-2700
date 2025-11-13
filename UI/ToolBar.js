@@ -25,10 +25,11 @@ class ToolBar {
   }
   
   display() {
+
+    //background rectanlge
     push();
     fill(0, 200);
-    rect(this.position.x, this.position.y, 
-         this.size.x, this.size.y, 8);
+    rect(this.position.x, this.position.y, this.size.x, this.size.y, 8);
     pop();
     
     /*
@@ -38,15 +39,17 @@ class ToolBar {
     if (this.currentCategory == null) return;
     
     for (let i = 0; i < this.numOptions; i++) {
-      let option = categories.PATHS[i + 1];
+
+      let option = categories.PATHS[i + 1]; //structure IN category (eg PATHS -> Roads)
       let position = this.optionPositions[i];
       
       push();
       fill(220);
       square(position.x, position.y, this.optionSize);
       stroke(220);
-      text(option, position.x, position.y + this.optionSize + 15);
+      text(option, position.x, position.y + this.optionSize + 15); //category label text
       pop();
+
     }    
   }
   
@@ -55,6 +58,7 @@ class ToolBar {
   number of options in the category.
   */
   setCurrentCategory(category) {
+    
     this.currentCategory = category;
     
     this.numOptions = this.currentCategory.length - 1;
@@ -87,11 +91,11 @@ class ToolBar {
   Will determine which option was clicked, and return its value.
   */
   getClickedOption(x, y) {
-    
+
   }
   
   /*
-  Will determin which category was clicked, and return its value.
+  Will determine which category was clicked, and return its value.
   */
   getClickedCategory(x, y) {
     

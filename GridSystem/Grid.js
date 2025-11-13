@@ -15,7 +15,7 @@ class Grid {
       let y = floor(i / numCols) * cellSize;
       
       let position = new Vector3(x, y);
-      this.cells[i] = new Cell(position);
+      this.cells[i] = new Cell(position, this);
     }
     
     // Transforms:

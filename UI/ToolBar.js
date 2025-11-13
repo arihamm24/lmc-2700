@@ -21,7 +21,7 @@ class ToolBar {
     this.optionSize = 60;
     this.setCurrentCategory(categories.PATHS);
     
-    this.currentPlacingMode = null;
+    this.currentPlacingMode = categories.PATHS[1];
   }
   
   display() {

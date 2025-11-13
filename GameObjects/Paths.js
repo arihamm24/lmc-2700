@@ -18,12 +18,21 @@ class Path {
     this.diameter = diameter;
 
     this.connectingCells = [];
+    findConnectingCells();
   }
 
-  findConnectingCell() {
+  findConnectingCells() {
     let gridCollumns = holdingCell.holdingGrid.numCols;
+
     for (let offset of cellOffsets) {
-      
+      let index = offset.y * gridCollumns + offset.x;
+      let cellToCheck = this.holdingCell.holdingGrid.cells[index];
+
+      if (cellToCheck.isEmpty) continue;
+
+      if (cellToCheck.heldObject instanceof Path) {
+        this.connectingCells.push(index);
+      }
     }
   }
 }

@@ -69,6 +69,10 @@ function mousePressed() {
   if (cellClicked < 0) {
     return;
   }
-    
-  mainGrid.cells[cellClicked].isEmpty = false;
+  
+  switch (toolBar.currentPlacingMode) {
+    case "Road":
+      mainGrid.cells[cellClicked].placeObject(new Road(2));
+      break;
+  }
 }

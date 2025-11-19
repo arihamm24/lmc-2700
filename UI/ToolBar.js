@@ -2,7 +2,6 @@
 Index 0 represents the category.
 */
 const categories = {
-  PATHS: ["Paths", "Road", "Bike Path"],
   HOUSING: ["Housing", "House"],
   EDUCATION: ["Education", "School"],
   POWER_PLANTS: ["Power Plants", "Solar"]
@@ -19,9 +18,9 @@ class ToolBar {
     this.position = position;
     this.size = size;
     this.optionSize = 60;
-    this.setCurrentCategory(categories.PATHS);
+    this.setCurrentCategory(categories.POWER_PLANTS);
     
-    this.currentPlacingMode = categories.PATHS[1];
+    this.currentPlacingMode = categories.POWER_PLANTS[1];
   }
   
   display() {
@@ -38,7 +37,7 @@ class ToolBar {
     if (this.currentCategory == null) return;
     
     for (let i = 0; i < this.numOptions; i++) {
-      let option = categories.PATHS[i + 1];
+      let option = this.currentCategory[i + 1];
       let position = this.optionPositions[i];
       
       push();

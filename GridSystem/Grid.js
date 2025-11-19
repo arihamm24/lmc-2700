@@ -15,11 +15,14 @@ class Grid {
       let y = floor(i / numCols) * cellSize;
       
       let position = new Vector3(x, y);
-      this.cells[i] = new Cell(position, this);
+      this.cells[i] = new Cell(position, this, i);
     }
     
-    // Transforms:
-    this.offset = Vector3.zero();
+    // Transforms: 
+    let xInitialOffset = width / 2 - numCols * cellSize / 2;
+    let yInitialOffset = height / 2 - numRows * cellSize / 2;
+
+    this.offset = new Vector3(xInitialOffset, yInitialOffset);
     this.gridScale = 1;  
     
     // Properties:
@@ -83,13 +86,16 @@ class Grid {
       let cellPos = this.cells[i].position.multiply(this.gridScale);
       cellPos = cellPos.add(this.offset);
       let cellIsEmpty = this.cells[i].isEmpty;
-      
-      let fillColor = cellIsEmpty ? color(0, 0, 0, 0) : 220;
+      let scaledSize = this.cellSize * this.gridScale
       
       push();
-      fill(fillColor);
-      square(cellPos.x, cellPos.y, this.cellSize * this.gridScale);
+      noFill();
+      square(cellPos.x, cellPos.y, scaledSize);
       pop();
+
+      if (!cellIsEmpty) {
+        this.cells[i].heldObject.display(cellPos, scaledSize);
+      }
     }
   }
 }

@@ -14,7 +14,7 @@ let toolBar;
 let mainGrid;
 let mainCellSize = 80;
 
-let scrollAmount = 20;
+let scrollAmount = 30;
 
 let backgroundColor;
 
@@ -24,13 +24,13 @@ function setup() {
   backgroundColor = color(20, 200, 20);
 
   sprites.SOLAR_FARM = loadImage('/Sprites/SolarFarm.png');
-  sprites.POWER_PLANT = loadImage('/Sprites/CoalPowerPlant.jpeg');
-  sprites.HOUSE = loadImage('/Sprites/House.jpeg');
-  sprites.RUNDOWN_HOUSE = loadImage('/Sprites/HouseRundown.jpeg');
-  sprites.LIBRARY = loadImage('/Sprites/Library.jpeg');
-  sprites.RUNDOWN_LIBRARY = loadImage('/Sprites/LibraryRundown.jpeg');
-  sprites.FLOWER = loadImage('/Sprites/Flower.jpeg');
-  sprites.WILTED_FLOWER = loadImage('/Sprites/WiltedFlower.jpeg');
+  sprites.POWER_PLANT = loadImage('/Sprites/CoalPowerPlant.png');
+  sprites.HOUSE = loadImage('/Sprites/House.png');
+  sprites.RUNDOWN_HOUSE = loadImage('/Sprites/HouseRundown.png');
+  sprites.LIBRARY = loadImage('/Sprites/Library.png');
+  sprites.RUNDOWN_LIBRARY = loadImage('/Sprites/LibraryRundown.png');
+  sprites.FLOWER = loadImage('/Sprites/Flower.png');
+  sprites.WILTED_FLOWER = loadImage('/Sprites/WiltedFlower.png');
 
   
   toolBar = new ToolBar(new Vector3(10, height - 130), 

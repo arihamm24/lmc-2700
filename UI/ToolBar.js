@@ -13,22 +13,20 @@ class ToolBar {
     this.position = position;
     this.size = size;
     this.optionSize = 60;
-    this.currentPlacingMode = placingModes[0];
+    this.currentPlacingMode = null;
 
     this.setToolBar();
   }
   
   display() {
+    // Tool bar
     push();
     fill(0, 200);
     rect(this.position.x, this.position.y, 
          this.size.x, this.size.y, 8);
     pop();
     
-    /*
-    Add display for categories.
-    */
-    
+    // Display all placing options
     for (let i = 0; i < placingModes.length; i++) {
       let option = placingModes[i];
       let position = this.optionPositions[i];
@@ -39,17 +37,23 @@ class ToolBar {
       let sprite = Object.values(sprites)[index];
 
       push();
-      fill(220);
       image(sprite, position.x, position.y, this.optionSize, this.optionSize);
-      stroke(220);
+
+      fill(220);
       text(option, position.x, position.y + this.optionSize + 15);
+
+      // If displaying the current placing mode, then highlight it.
+      if (placingModes[i] === this.currentPlacingMode) {
+        noFill();
+        stroke(220);
+        square(position.x, position.y, this.optionSize);
+      }
       pop();
     }    
   }
   
   /*
-  Sets the category, and option positions based on the
-  number of options in the category.
+  Sets the option positions.
   */
   setToolBar() {
     this.optionPositions = new Array(placingModes.length - 1);
@@ -78,7 +82,7 @@ class ToolBar {
   }
   
   /*
-  Will determine which option was clicked, and return its value.
+  Returns the clicked option.
   */
   getClickedOption(x) {
     for (let i = 0 ; i < placingModes.length; i++) {

@@ -13,9 +13,9 @@ let score = 20;
 
 let toolBar;
 
+// Grid Variables
 let mainGrid;
 let mainCellSize = 80;
-
 let scrollAmount = 30;
 
 let backgroundColor;
@@ -25,6 +25,7 @@ function setup() {
   
   backgroundColor = color(20, 200, 20);
 
+  // Load sprites
   sprites.SOLAR_FARM = loadImage('/Sprites/SolarFarm.png');
   sprites.POWER_PLANT = loadImage('/Sprites/CoalPowerPlant.png');
   sprites.HOUSE = loadImage('/Sprites/House.png');
@@ -34,10 +35,11 @@ function setup() {
   sprites.FLOWER = loadImage('/Sprites/Flower.png');
   sprites.WILTED_FLOWER = loadImage('/Sprites/WiltedFlower.png');
 
-  
+
   toolBar = new ToolBar(new Vector3(10, height - 130), 
                         new Vector3(width - 20, 120));
   
+
   mainGrid = new Grid(8, 5, mainCellSize);
 }
 
@@ -88,15 +90,21 @@ function mousePressed() {
   if (toolBar.clicked()) {
     let chosenOption = toolBar.getClickedOption(mouseX);
     
-    toolBar.setPlacingMode(chosenOption);
+    if (chosenOption != null) {
+      toolBar.setPlacingMode(chosenOption);
+    }
 
     return;
   }
   
+  // Ignore click if no placing mode selected.
+  if (toolBar.currentPlacingMode === null) return;
+
   // Grid interaction
   let cellClicked = mainGrid.getIndex(mouseX, mouseY);
   
-  if (cellClicked < 0) {
+  // Ignore click if the cell index is invalid, or 
+  if (cellClicked < 0 || !mainGrid.cells[cellClicked].isEmpty) {
     return;
   }
 

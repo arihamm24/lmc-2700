@@ -102,23 +102,25 @@ function mousePressed() {
 
   // Grid interaction
   let cellClicked = mainGrid.getIndex(mouseX, mouseY);
-  
-  // Ignore click if the cell index is invalid, or 
-  if (cellClicked < 0 || !mainGrid.cells[cellClicked].isEmpty) {
+
+  // Place object if the index is valid and there is nothing already in the cell.
+  let validCell = cellClicked >= 0 || mainGrid.cells[cellClicked].isEmpty;
+  if (validCell) {
+    switch (toolBar.currentPlacingMode) {
+      case "House":
+        mainGrid.cells[cellClicked].placeObject(new House());
+        break;
+      case "Power Plant":
+        mainGrid.cells[cellClicked].placeObject(new PowerPlant());
+        break;
+      case "Library":
+        mainGrid.cells[cellClicked].placeObject(new Library());
+        break;
+      case "Flower":
+        mainGrid.cells[cellClicked].placeObject(new Flower());
+    }
     return;
   }
 
-  switch (toolBar.currentPlacingMode) {
-    case "House":
-      mainGrid.cells[cellClicked].placeObject(new House());
-      break;
-    case "Power Plant":
-      mainGrid.cells[cellClicked].placeObject(new PowerPlant());
-      break;
-    case "Library":
-      mainGrid.cells[cellClicked].placeObject(new Library());
-      break;
-    case "Flower":
-      mainGrid.cells[cellClicked].placeObject(new Flower());
-  }
+  
 }

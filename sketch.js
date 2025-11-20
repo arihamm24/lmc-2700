@@ -3,11 +3,13 @@ let sprites = {
   SOLAR_FARM: null,
   LIBRARY: null,
   FLOWER: null,
-  POWER_PLANT: null,
   RUNDOWN_HOUSE: null,
+  POWER_PLANT: null,
   RUNDOWN_LIBRARY: null,
   WILTED_FLOWER: null
 };
+
+let score = 20;
 
 let toolBar;
 
@@ -84,7 +86,7 @@ function keyPressed() {
 function mousePressed() {
   // Toolbar interaction
   if (toolBar.clicked()) {
-    let chosenOption = toolBar.getClickedOption(mouseX, mouseY);
+    let chosenOption = toolBar.getClickedOption(mouseX);
     
     toolBar.setPlacingMode(chosenOption);
 

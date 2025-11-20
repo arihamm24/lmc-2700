@@ -27,25 +27,25 @@ Feel free to do whatever with these.
 // We should have powerplants for all types of power sources.
 class PowerPlant extends GameObject {
   constructor() {
-    super(sprites.SOLAR_FARM);
+    super(score >= 50 ? sprites.SOLAR_FARM : sprites.POWER_PLANT);
   }
 }
 
 class House extends GameObject {
   constructor() {
-    super(sprites.HOUSE);
+    super(score >= 50 ? sprites.HOUSE : sprites.RUNDOWN_HOUSE);
   }
 }
 
 class Library extends GameObject {
   constructor() {
-    super(sprites.LIBRARY);
+    super(score >= 50 ? sprites.LIBRARY : sprites.RUNDOWN_LIBRARY);
     print(sprites.Library);
   }
 }
 
 class Flower extends GameObject {
   constructor() {
-    super(sprites.FLOWER);
+    super(score >= 50 ? sprites.FLOWER : sprites.WILTED_FLOWER);
   }
 }

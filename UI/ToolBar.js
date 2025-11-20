@@ -32,7 +32,11 @@ class ToolBar {
     for (let i = 0; i < placingModes.length; i++) {
       let option = placingModes[i];
       let position = this.optionPositions[i];
-      let sprite = Object.values(sprites)[i];
+
+      // If the score is less than 50, then index the rundown version.
+      let index = score >= 50 ? i : i + 4;
+
+      let sprite = Object.values(sprites)[index];
 
       push();
       fill(220);
@@ -76,7 +80,7 @@ class ToolBar {
   /*
   Will determine which option was clicked, and return its value.
   */
-  getClickedOption(x, y) {
+  getClickedOption(x) {
     for (let i = 0 ; i < placingModes.length; i++) {
       let option = this.optionPositions[i];
 

@@ -6,9 +6,8 @@ Variables that could be added:
 - 
 */
 class GameObject {
-  constructor(quality, sprite) {
+  constructor(sprite) {
     this.holdingCell = null;
-    this.quality = quality;
     this.sprite = sprite;
   }
 
@@ -27,22 +26,26 @@ Feel free to do whatever with these.
 
 // We should have powerplants for all types of power sources.
 class PowerPlant extends GameObject {
-  constructor(powerSource) {
-    super(10, sprites.SOLAR_FARM);
-    this.powerSource = powerSource;
+  constructor() {
+    super(sprites.SOLAR_FARM);
   }
 }
 
 class House extends GameObject {
-  constructor(floors) {
-    super(max(1, floors) * 2, max(1, floors) * 50000);
-    this.floors = floors;
+  constructor() {
+    super(sprites.HOUSE);
   }
 }
 
-class School extends GameObject {
-  constructor(classrooms) {
-    super(max(5, classrooms) * 20, max(5, classrooms) * 100000);
-    this.classrooms = classrooms;
+class Library extends GameObject {
+  constructor() {
+    super(sprites.LIBRARY);
+    print(sprites.Library);
+  }
+}
+
+class Flower extends GameObject {
+  constructor() {
+    super(sprites.FLOWER);
   }
 }

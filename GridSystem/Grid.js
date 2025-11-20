@@ -64,10 +64,10 @@ class Grid {
     let xIndex = floor(offsetX / this.cellSize);
     let yIndex = floor(offsetY / this.cellSize);
     
-    let insideX = xIndex > 0 && xIndex < this.numCols;
-    let insideY = yIndex > 0 && yIndex < this.numRows;
+    let insideX = xIndex >= 0 && xIndex < this.numCols;
+    let insideY = yIndex >= 0 && yIndex < this.numRows;
     let insideBounds = insideX && insideY;
-    
+
     if (!insideBounds) return -1;
     
     return yIndex * this.numCols + xIndex;

@@ -1,11 +1,18 @@
 let sprites = {
-  SOLAR_FARM: null
+  HOUSE: null,
+  SOLAR_FARM: null,
+  LIBRARY: null,
+  FLOWER: null,
+  POWER_PLANT: null,
+  RUNDOWN_HOUSE: null,
+  RUNDOWN_LIBRARY: null,
+  WILTED_FLOWER: null
 };
 
 let toolBar;
 
 let mainGrid;
-let mainCellSize = 100;
+let mainCellSize = 80;
 
 let scrollAmount = 20;
 
@@ -17,6 +24,14 @@ function setup() {
   backgroundColor = color(20, 200, 20);
 
   sprites.SOLAR_FARM = loadImage('/Sprites/SolarFarm.png');
+  sprites.POWER_PLANT = loadImage('/Sprites/CoalPowerPlant.jpeg');
+  sprites.HOUSE = loadImage('/Sprites/House.jpeg');
+  sprites.RUNDOWN_HOUSE = loadImage('/Sprites/HouseRundown.jpeg');
+  sprites.LIBRARY = loadImage('/Sprites/Library.jpeg');
+  sprites.RUNDOWN_LIBRARY = loadImage('/Sprites/LibraryRundown.jpeg');
+  sprites.FLOWER = loadImage('/Sprites/Flower.jpeg');
+  sprites.WILTED_FLOWER = loadImage('/Sprites/WiltedFlower.jpeg');
+
   
   toolBar = new ToolBar(new Vector3(10, height - 130), 
                         new Vector3(width - 20, 120));
@@ -31,7 +46,6 @@ function draw() {
   
   toolBar.display();
 }
-
 
 function keyPressed() {
   // Shifting
@@ -70,8 +84,10 @@ function keyPressed() {
 function mousePressed() {
   // Toolbar interaction
   if (toolBar.clicked()) {
-    let chosenCategory = toolBar.getClickedOption(mouseX, mouseY);
-    print(chosenCategory);
+    let chosenOption = toolBar.getClickedOption(mouseX, mouseY);
+    
+    toolBar.setPlacingMode(chosenOption);
+
     return;
   }
   
@@ -83,8 +99,16 @@ function mousePressed() {
   }
 
   switch (toolBar.currentPlacingMode) {
-    case "Solar":
-      mainGrid.cells[cellClicked].placeObject(new PowerPlant("Solar"));
+    case "House":
+      mainGrid.cells[cellClicked].placeObject(new House());
       break;
+    case "Power Plant":
+      mainGrid.cells[cellClicked].placeObject(new PowerPlant());
+      break;
+    case "Library":
+      mainGrid.cells[cellClicked].placeObject(new Library());
+      break;
+    case "Flower":
+      mainGrid.cells[cellClicked].placeObject(new Flower());
   }
 }

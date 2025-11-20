@@ -1,12 +1,7 @@
 /*
 Index 0 represents the category.
 */
-const categories = {
-  HOUSING: ["Housing", "House"],
-  EDUCATION: ["Education", "School"],
-  POWER_PLANTS: ["Power Plants", "Solar"]
-};
-
+const placingModes = ["House", "Power Plant", "Library", "Flower"];
 
 /*
 Still a proof of concept, but the goal is to have a toolbar
@@ -18,9 +13,9 @@ class ToolBar {
     this.position = position;
     this.size = size;
     this.optionSize = 60;
-    this.setCurrentCategory(categories.POWER_PLANTS);
-    
-    this.currentPlacingMode = categories.POWER_PLANTS[1];
+    this.currentPlacingMode = placingModes[0];
+
+    this.setToolBar();
   }
   
   display() {
@@ -34,15 +29,14 @@ class ToolBar {
     Add display for categories.
     */
     
-    if (this.currentCategory == null) return;
-    
-    for (let i = 0; i < this.numOptions; i++) {
-      let option = this.currentCategory[i + 1];
+    for (let i = 0; i < placingModes.length; i++) {
+      let option = placingModes[i];
       let position = this.optionPositions[i];
-      
+      let sprite = Object.values(sprites)[i];
+
       push();
       fill(220);
-      square(position.x, position.y, this.optionSize);
+      image(sprite, position.x, position.y, this.optionSize, this.optionSize);
       stroke(220);
       text(option, position.x, position.y + this.optionSize + 15);
       pop();
@@ -53,17 +47,14 @@ class ToolBar {
   Sets the category, and option positions based on the
   number of options in the category.
   */
-  setCurrentCategory(category) {
-    this.currentCategory = category;
-    
-    this.numOptions = this.currentCategory.length - 1;
-    this.optionPositions = new Array(this.numOptions - 1);
+  setToolBar() {
+    this.optionPositions = new Array(placingModes.length - 1);
     
     let y = this.position.y + this.optionSize / 2;
     
-    let spacing = (this.size.x) / (this.numOptions + 1);
+    let spacing = (this.size.x) / (placingModes.length + 1);
     
-    for (let i = 0; i < this.numOptions; i++) {
+    for (let i = 0; i < placingModes.length; i++) {
       let x = this.position.x + spacing * (i + 1);
       
       this.optionPositions[i] = new Vector3(x - this.optionSize / 2, y);
@@ -86,13 +77,16 @@ class ToolBar {
   Will determine which option was clicked, and return its value.
   */
   getClickedOption(x, y) {
-    
+    for (let i = 0 ; i < placingModes.length; i++) {
+      let option = this.optionPositions[i];
+
+      let withinX = x > option.x && x < option.x + this.optionSize;
+
+      if (withinX) return placingModes[i];
+    }
   }
-  
-  /*
-  Will determin which category was clicked, and return its value.
-  */
-  getClickedCategory(x, y) {
-    
+
+  setPlacingMode(option) {
+    this.currentPlacingMode = option;
   }
 }

@@ -120,7 +120,5 @@ function mousePressed() {
         mainGrid.cells[cellClicked].placeObject(new Flower());
     }
     return;
-  }
-
-  
+  }  
 }

@@ -1,0 +1,537 @@
+:: StoryTitle
+Born in the Anthropocene
+
+
+:: StoryData
+{
+  "ifid": "42D3B287-E039-47F0-A8F2-DC3D688EFDFF",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Title Screen",
+  "tag-colors": {
+    "School-Age": "orange",
+    "Young-Adult": "green",
+    "Adult": "purple",
+    "Transition": "red",
+    "mini-scene": "yellow",
+    "GARDEN": "blue"
+  },
+  "zoom": 0.6
+}
+
+
+:: Adulthood [Adult] {"position":"600,1150","size":"100,100"}
+You awake on a cool, winter Saturday in your <<do>> <<if $married>> own 2-story home <<else>> apartment<</if>><</do>>.
+
+ <<do>> <<if $married>>Your partner's left for the day, and you have the house you yourself.<<else>>It's quiet living alone. You never did get that cat you considered a few years back. Oh well.<</if>><</do>>. 
+ 
+You head to the kitchen to make toast and coffee, and open the morning paper on your phone. As you sit at the table to eat, you get an Instagram notification.
+
+Aria, your friend from high school, reached out to you.
+
+//"Hey! Long time, no see :) Want to grab coffee and catch up?"//
+
+[[Why not? I've got the whole day ahead of me|Coffee with Aria]]
+
+
+:: Aria Goodbye [Adult mini-scene] {"position":"1100,1250","size":"100,100"}
+
+<<do>>
+	<<if $aria == "teach"|| $aria == "advance">>
+    	"That's noble of you. From what I know, and from what you've told me, I'm sure you'll do just that."
+    <<else>>
+    	"Well...there's always time to try to change that..."
+    <</if>>
+<</do>>
+
+With this, she stands to leave, gathering her things while you collect your cups to put in the <<do>><<if $sustainabilityScore >= 5>>recycling <<else>> trash<</if>><</do>>. 
+
+"I have a flight to catch," she says, "But I'm really<<do>><<if $aria == "teach"|| $aria == "advance">> so glad <<else>>... glad <</if>><</do>>we did this."
+
+[[Garden Check 3]] 
+
+
+:: Ask Dad [mini-scene] {"position":"1550,775","size":"100,100"}
+You walk downstairs, and grab your grandmother's sewing kit from the kitchen drawer.
+
+You approach your father on the couch, and ask him if he could sew the button back on your shirt. 
+
+
+He smiles at you and pats the spot next to him on the couch, inviting you to sit with him.
+
+"Whatever you choose to do, I know you'll be spectacular. You're smart, thoughtful, and kind, and we're all so //so// proud of you."
+
+He ties off the knot on the inside of your shirt, and pushes off your shoulder to stand up. 
+
+You stand in front of him and put on your newly-mended shirt. You're a whole head taller than him now, but you let him button your last few buttons and adjust your collar. He's feeling sentimental.
+
+"Sharp as ever," he beams. "Ready to go?"
+
+[[Go to graduation|Graduation]]
+
+
+:: At school [School-Age] {"position":"925,650","size":"100,100"}
+You arrive at school, greeting your teacher and friends as students trickle in. After a few moments, as the class settles, your teacher starts today’s lesson 
+
+“Good morning, class! Today, we’re going to continue our discussion of Zombies in 21st-century Films. Who can tell me a tenet of this genre and how it could relate to sustainability?”
+
+
+[["Zombie movies usually treat the apocalypse at the result of an major disease outbreak that was mishandled by governments and public health organizations and for which society as unprepared."|Lecture Continues][$teacherPraise to "Exactly!"; $sustainabilityScore to  $sustainabilityScore + 5]]
+
+[["People usually have to quarantine to protect themselves from the virus. That's part of public health and sustainability."|Lecture Continues][$teacherPraise to "That's a start!"; $sustainabilityScore to  $sustainabilityScore + 1]]
+
+[["Don’t raise your hand"|Lecture Continues][ $teacherPraise to "I guess I'll fill in some gaps."; $sustainabilityScore to  $sustainabilityScore - 1]]
+
+
+
+
+:: Borrow [mini-scene] {"position":"1450,775","size":"100,100"}
+You race downstairs and out the front door, yelling "I love you!" to your grandmother grabbing a biscuit for Sam on the way.
+
+You tear down the street and trip up the front steps of the Wilkins' house. You compose yourself to calmly–//respectfully//–knock on the front door.
+
+Sam answers, late as ever, but this time almost entirely dressed. You thrust the biscuit into his chest
+
+"Sam! I need–" you cough, winded "–a shirt. My button–"
+
+"Yeah, yeah! I've got one. Come on."
+
+He waves you in, already halfway through the biscuit by the time you both find clean, fitting shirts.
+
+"Ready to go?" he asks.
+
+[[Go to graduation|Graduation]]
+
+
+:: Childhood - Start Here [School-Age] {"position":"600,500","size":"100,100"}
+You wake up in a simple two-story family ranch home to your grandmother calling you downstairs. She’s made you breakfast before school, tofu scramble, fish and rice, and fresh biscuits.
+
+//What would you like to eat?//
+
+<<linkreplace "Hmm... tofu and a biscuit">>Eat up! A full belly is a fueled brain<</linkreplace>>
+<<linkreplace "Oooh, Fish and Rice">>Eat up! A full belly is a fueled brain<</linkreplace>>
+<<linkreplace "Just a biscuit, please">>I do wish you'd eat more. Breakfast is the most important meal of the day<</linkreplace>>
+
+
+
+<<link [[Finish Eating|finish eating]]>><</link>>
+
+
+:: Coffee with Aria [Adult] {"position":"800,1150","size":"100,100"}
+In the afternoon, you head to the coffee shop. You remove your hat and coat as you walk in an scan the crowd for Aria.
+
+You see her waving from a small wooden table near the back corner of the shop.
+
+She greets you warmly, and you both sit. After you both order and have settled with your respective beverages. 
+
+"Gosh, 20 years," she exclaims. "What are you doing these days?"
+
+<<do>>
+	<<if $college>>
+    	<<if $major == "art">>
+    	[[I'm an urban designer, an eco-designed specifically. I focus on walkable and sustainable city development|Hobbies?][$sustainabilityScore += 3]]
+        <<else>>
+        [[I went into public health research. I've helped with a couple prevention inititatives and helped reduce cost for local clinics.|Hobbies?][$sustainabilityScore += 3]]
+        <</if>>
+    <<elseif $work>>
+    [[I'm a manager at the $power plant now.|Hobbies?]]
+    <<else>>
+		[[Keeping busy, mostly, staying connected with my community. You know, events organizing, mutual aid, odd jobs in the neighborhood. Helping my fellow man and what not|Hobbies?][$sustainabilityScore += 1]]
+    <</if>>
+<</do>>
+
+
+:: College or Career [Young-Adult] {"position":"1100,925","size":"100,100"}
+You head downstairs, where your mother is cooking breakfast, while your father and sibling play gin rummy on the couch. Over the sizzle of the stove, you hear your mother ask:
+
+"Are you still thinking about college? Of course, you don't have to work, but if you still want to keep busy, it could be a good option"
+
+
+[[I think college is the right choice for me|Mom Reply][$college = true; $momReply to "I remember you said you talked to Jannah about a some ideas about your major at graduation. You better get your applications in soon"]]
+[[No, I'm still weighing the pros and cons|Mom Reply][$momReply to "What have you thought of so far? I know you said you wanted to keep busy as an adult, but you know you don't have to do either if you don't want to."]]
+[[Actually, I think working could be good for me. Something small |Mom Reply][$momReply to "What have you thought of so far? I know you said you wanted to keep busy as an adult, but you know you don't have to do either if you don't want to.";$work = true]]
+ 
+
+
+:: DIY [mini-scene] {"position":"1350,775","size":"100,100"}
+
+You find your grandmother's sewing kit in a kitchen drawer and sit at the table.
+
+You sew the button back onto your shirt, while your grandmother offers some sage advice.
+
+"Do you know why I taught you to sew when you were little?"
+
+"No," you reply, "why?"
+
+"Every time you patch a hole or hem a pant leg or sew a button, you have to sit a while... I did it so I could spend more time with you"
+
+You smile at her while you tie of the knot on the inside of your shirt. You kiss her cheek while you button your shirt, and suddenly, you're ready to go.
+
+[[Go to graduation|Graduation]]
+
+
+:: End {"position":"1700,1275","size":"100,100"}
+!Thank you for playing //Born in the Anthropocene//
+
+!!!This was a design futuring project, created as the final deliverable for the Fall 2025 LMC 2700 (Intro to Computational Media) course at Georgia Tech
+
+//Please refresh the page to restart//
+
+!!Credits
+''Writers''
+Ari Hammond
+Caden Terrell
+Sowmiyan Vijayakumar
+Case Dinkla
+
+''Twine Developer(s)''
+Ari Hammond
+
+''Graphic Artist''
+Ari Hammond
+
+''p5.js Developer(s)''
+Noah Graff
+Case Dinkla
+Ari Hammond
+
+
+:: Garden Check 1 [GARDEN] {"position":"1700,775","size":"100,100"}
+!!Your sustainability score is ''$sustainabilityScore''. Input it below to build your city
+
+<iframe src="https://editor.p5js.org/arihamm24/full/zj6Mt624-" width="800" height="650"></iframe>
+
+<<do>>
+	<<if $sustainabilityScore >= 10>>
+    So far, you've made choices that have been sustainable. You've been active and helpful 
+    in your community and applying yourself well at school. You are already helping create a more sustainable world.
+    <<else>>
+    You didn't make the most sustainble choices you could have. But there's still time to turn things around.
+    <</if>>
+<</do>>
+
+Now that you've graduated, it's time to see what new choices you'll make.
+
+[[Several months later...|Young Adulthood]]
+
+
+
+:: Garden Check 2 [GARDEN] {"position":"1700,1025","size":"100,100"}
+!!Your sustainability score is ''$sustainabilityScore''. Input it below to build your city
+
+<iframe src="https://editor.p5js.org/arihamm24/full/zj6Mt624-" width="800" height="650"></iframe>
+
+<<do>>
+	<<if $sustainabilityScore >= 10>>
+    	<<if $college>>
+        	You started college to study $major, and along the way made even more sustainable choices. You're well prepared to continue this impact later in your adulthood.
+        <<elseif $work>>
+        	You are working in a $power plant, due to your choices. As you mature, there will be opportunities for advancement. Are these opportunities you want?
+        <<else>>
+        	You have continued to make sustainable decisions and contribute to your community in meaningful and impactful ways.
+        <</if>>
+    <<else>>
+    	<<if $college>>
+        	You started college to study $major. Despite some less sustainable choices, there is still an opportunity to turn things around
+        <<elseif $work>>
+        	You are working in a $power plant, due to your choices. As you mature, there will be opportunities for advancement. Are these opportunities you want?
+        <<else>>
+        	You decided not to work or pursue higher education, but have not yet contributed to your community in earnest. There's still a chance to turn things around.
+        <</if>>
+    <</if>>
+<</do>>
+
+[[20 years later...|Adulthood]]
+
+
+:: Garden Check 3 [GARDEN] {"position":"1700,1150","size":"100,100"}
+!!Your sustainability score is ''$sustainabilityScore''. Input it below to build your city
+
+<iframe src="https://editor.p5js.org/arihamm24/full/zj6Mt624-" width="800" height="650"></iframe>
+
+<<do>>
+	<<if $sustainabilityScore >= 10>>
+    	You made the most sustainable choices over the course of your life. From your relationships, to your community, to your career and education, you made choices to better inform your decisions about sustainability and interactions with your environment. This ultimately allowed you to have a positive sustainable impact.
+    <<else>>
+    	You could've made better choices during your life, but that's likely true of most people. Whether it was a moment of selfishness at the expense of community, a choice of convenience over connection, or apathy amongst a passionate people, you made choices that ultimately limited your view of sustainability and opportunities to build a sustainable world.
+    <</if>>
+<</do>>
+
+[[End]]
+
+
+:: Get Ready for Graduation [School-Age] {"position":"1450,650","size":"100,100"}
+...it is the morning of your high school graduation. You are serving your grandmother breakfast, while your sibling does the dishes from a rickety wooden step-stool. As you sit to eat, your mother comes down the stairs. 
+
+She rests a hand on your shoulder and smiles at you warmly. “This day came so much sooner than we could’ve imagined. I’m so proud of you”
+
+She bends down to kiss your forehead, when your father notices the time.
+
+“Eat fast, you don’t want to be late!”
+
+You check the stove clock and wolf down the rest of your breakfast. You race upstairs, and as you are rushing to get dressed, a button pops off the front of your shirt.
+
+//You have to fix this wardrobe malfunction! Fast!//
+
+[[Borrow a shirt from Mrs. Wilkins|Borrow][$sustainabilityScore += 5]]
+[[Ask your father to repair it|Ask Dad][$sustainabilityScore += 3]]
+[[Repair it yourself|DIY][$sustainabilityScore += 1]]
+
+
+:: Go get dressed [School-Age] {"position":"750,650","size":"100,100"}
+You kiss your grandmother goodbye, hand your sibling a biscuit, and grab your bag. 
+
+Your father stops you on the way out.
+
+“Your mother and Mrs. Wilkins went to work early this morning. Could you drop off food at the Wilkins’ and walk Sam to school?
+
+What will you do with the food?
+
+<<link [[Take the food, save it for lunch at school|Lunch]]>><</link>>
+<<link [[Take the food, leave it at the door|Leave at Door]]>><</link>>
+<<link [[Take the food, and wait for Sam to eat so you can walk to school together|Walk with Sam]]>><</link>>
+
+
+:: Graduation [School-Age Transition] {"position":"1700,650","size":"100,100"}
+Your principal takes the stage to address you and your classmates.
+
+“Students, you have spent years nurturing your creativity, developing your morals and ethics, and critically examining the world around you, and now you prepare to embark into adulthood, hopefully prepared and unabashedly excited. We hope that we have endowed you with the tools to make the changes //you// want to see in the world. ''Congratulations to the graduating class of 2126!''”
+
+As the excitement dims to a gentle thrum among the crowd, your friend Jannah turns to hug you, celebrating your mutual achievement. Jannah asks, “So what changes do you want to see in the world?”
+
+
+[["I like creating. I think I have important things to say"|Garden Check 1][$sustainabilityScore +=1;$major = "art"]]
+[["I want to help with public health and medicine."|Garden Check 1][$sustainabilityScore +=3;$major = "public health"]]
+[["I don’t know yet, but I'm excited to find out"|Garden Check 1]]
+
+
+:: Hobbies? [Adult] {"position":"950,1150","size":"100,100"}
+<<do>>
+  <<if $work>>
+      <<if $power == "solar">>
+          "That sounds so much like you. And you seem happy. Personally, I've been..."
+          <<set $sustainabilityScore += 4>>
+      <<else>>
+          <<set $sustainabilityScore -= 4>>
+          "That's...unusual. And not all that good for the environment. Personally, I've been..."
+      <</if>>
+  <<else>>
+  	"That sounds so much like you. And you seem happy. Personally, I've been..."
+  <</if>>
+<</do>>
+
+She talks for a few minutes about the traveling she's been doing with a few NGOs and non-profits. Namibia with Doctors without Borders. Puerto Rico with Habitat for Humanity. After a moment, she pauses
+
+"I'm sorry. I don't mean to ramble, it's just been a while since I've had anyone to tell about it. I gave up travel influencing a few years ago."
+
+Vaguely, you recall a few videos on your feed of Aria's Christmas in Dubai a couple years back. You wave her off, enjoying the conversation regardless
+
+"What else do you do?" she asks, "Where are you living?"
+
+[[I inherited my parents' house after they passed, so I spend a lot of time just thinking about when we were kids. Trying to make sure the world stays that way for other generations. |Legacy][$sustainabilityScore += 1]]
+[[I actually live in communal housing, so I spend a lot of time with my co-habitants. Last week, I helped Sarah's son with his science fair project. I think he's really going to be something grea |Legacy][$sustainabilityScore += 3]]
+
+
+
+
+:: Leave at Door [mini-scene] {"position":"600,775","size":"100,100"}
+You take the food from your father and head down the street to the Wilkins' house. You set the bag gently on the front steps and ring the doorbell. 
+
+You hear footsteps coming toward the door, and decide that since the food is delivered, you don't want to wait for Sam to eat. You already brought him food, you've done enough
+
+<<set $sustainabilityScore to $sustainabilityScore  - 2>>
+
+[[Head to school->At school]]
+
+
+:: Lecture Continues [School-Age] {"position":"1125,650","size":"100,100"}
+“$teacherPraise Horror and sci-fi are often used as a speculative genre to predict and explore how humanity may respond to or change due to different events. In the case of zombie movies, the event is a public health crisis or a pandemic. We’ve watched several here in class and talked plenty. How about some questions to get us thinking from a different angle!”
+
+ [[“Why weren’t zombie movies less popular after the 2020 COVID pandemic? They seem like they’d be more boring than the real thing”|Question 1][$teacherPraise to "A very good question. Go read a few articles about the pandemic in the library and compare them to movie reviews from the '20s. Tell me what you think tomorrow"; $destination to "library";$sustainabilityScore += 3]]
+
+[[“Have we improved our public health response? Has it made us more sustainable?”|Question 2][$teacherPraise to "It depends on who you ask! Do some research on public health metrics and opinions. Compare how things have changed. You might find an interesting answer"; $destination to "library";$sustainabilityScore +=1]]
+
+[[“Can I use the restroom?”|Question 3][$teacherPraise to "You may.";$destination to "bathroom";$sustainabilityScore -=2]]
+
+
+
+
+:: Legacy [Adult] {"position":"1100,1150","size":"100,100"}
+"It sounds like you've really made a life for yourself then. Fulfilled and happy, and surprisingly optimistic. Do you have any hopes for those future generations? Anything you think you'll pass on?"
+
+<<do>>
+<<if $sustainabilityScore >= 8>>
+  [[I want to pass on my knowledge to younger generations on how to improve our sustainable world.|Aria Goodbye][$aria to "teach"]]
+
+  [[I want to push for more changes and technological advances to keep improving our society. |Aria Goodbye][$aria to "advance"]]
+  <<else>>
+  [[At this point, I'm not sure there's much of anything to pass on|Aria Goodbye][$aria to "sad"]]
+  <</if>>
+<</do>>
+
+
+:: Lunch [mini-scene] {"position":"700,775","size":"100,100"}
+You take the food from your father and head down the street for the Wilkins' house. Once your far enough from your front window, you tuck it into your bag to snack on later. 
+
+<<set $sustainabilityScore to $sustainabilityScore  - 5>>
+
+
+[[Head to school->At school]]
+
+
+:: Marriage [Young-Adult Transition] {"position":"1700,925","size":"100,100"}
+You walk your date to their car, and as they open the door, they turn to you.
+
+"I had a really nice time tonight. Do you have any thoughts on a second date? Say, two weeks from tomorrow?"
+
+You smile and reply:
+
+<<do>>
+	<<if $college>>
+    	[[Money is pretty tight right now. How about Wendy's?|Garden Check 2][$marriage = false]]
+    <<else>>
+ 		[[Maybe we could go to a restaurant. That new pizza place on 18th street?|Garden Check 2][$marriage = true]]
+	[[I'll treat you next time. Wear something nice, I think I might have a plan|Garden Check 2][$marriage = true]]
+	<</if>>
+ <</do>>
+    
+
+
+
+
+
+:: Mom Reply [Young-Adult mini-scene] {"position":"1100,1025","size":"100,100"}
+She replies, "$momReply"
+
+
+From the couch, your father pipes up. "We're proud of you either way. Now, hurry and eat so I can beat you in gin."
+
+<<if $college>>
+	As you go to sit on the couch, you think back to the conversation you had with Jannah, and about all you learned in school.
+    
+    <<if $major is undefined>>
+    
+    What major will you pick?
+    
+    [[I want to major in art. I have always been pretty creative |One Year Later][$major = "art"]]
+    [[I want to major in public health. I want to know more about keeping people safe and healthy|One Year Later][$major = "public health"]]
+    <<else>>
+    You will major in $major, recalling how much it fascinated you when you were younger.
+    
+     [[One Year Later]]
+    <</if>>
+<<else>>
+    [[One Year Later]]
+<</if>>
+
+
+
+
+
+:: One Year Later [Young-Adult] {"position":"1500,925","size":"100,100"}
+You're on a first date at a local bookstore. Between the two of you, you've amassed a stack of books 3 feet high and a light-hearted, but informative rapport.
+
+You check out at the register, and you thank your date for paying. 
+
+//Generous//, you think, //a good sign...//
+
+You sit together on a couch in one of the store's reading nooks. You've discussed all you can about your books without actually //reading// them, and the conversation turns to simple, but amorous small talk. 
+
+"What do you do?" they ask
+
+<<do>>
+	<<if $college>>
+		<<link "I’m currently attending college as a(n) $major major.""Person response">><</link>>
+     <<elseif $work>>
+        <<if $sustainabilityScore >=5>>
+        	<<set $power to "solar">>
+            <<set $sustainabilityScore += 2>>
+            <<else>>
+            <<set $power to "coal">>
+            <<set $sustainabilityScore -= 2>>
+        <</if>>
+       <<link "I’m working at the city $power plant.""Person response">><</link>>
+     <<elseif $major == "art" && !$college>>
+     	[[I'm a volunteer art teacher. Skipped college and started working in afterschool programs a few months ago|Person response][$sustainabilityScore += 1]]
+     <<elseif $major == "health" && !$college>>
+     [[I volunteer with the local clinic a few times a week, but I never went to college|Person response][$sustainabilityScore += 3]]
+     <</if>>
+     
+     
+<</do>>
+
+
+:: Person response [mini-scene Young-Adult] {"position":"1500,1025","size":"100,100"}
+"Wow!" they exclaim. "That's...impressive. I don't work much myself. Just odd jobs here and there to finance my book addiction when the library's closed. Oh and to pay for dates with cuties like you"
+
+You laugh, as you have been all evening, and blush a bit. 
+
+//They're **funny**//, you think. //And flirty//
+
+
+An alarm goes off on their phone, and you both jump, startled out of very nice moment.
+
+"Speaking of," they say, "I have to go fix my neighbor's car. I totally lost track of time"
+
+
+[[Time to go|Marriage]]
+
+
+:: Question 1 [mini-scene] {"position":"1025,775","size":"100,100"}
+$teacherPraise
+
+The bell rings, and you gather your things to go to the $destination. Your curiosity is piqued, and maybe–just //maybe//–your future has been changed.
+
+
+[[A few years later...|Get Ready for Graduation]] 
+
+
+:: Question 2 [mini-scene] {"position":"1125,775","size":"100,100"}
+$teacherPraise
+
+The bell rings, and you gather your things to go to the $destination. Your curiosity is piqued, and maybe–just //maybe//–your future has been changed.
+
+[[A few years later...|Get Ready for Graduation]] 
+
+
+:: Question 3 [mini-scene] {"position":"1225,775","size":"100,100"}
+$teacherPraise
+
+The bell rings, and you gather your things to go to the $destination. Your curiosity is piqued, and maybe–just //maybe//–your future has been changed.
+
+[[A few years later...|Get Ready for Graduation]] 
+
+
+:: Title Screen {"position":"400,400","size":"100,100"}
+
+[img[https://img.itch.zone/aW1nLzI0MTY5NTA5LnBuZw==/360x286%23c/zgJeY1.png]]
+
+
+[[Begin game|Childhood - Start Here]]
+
+
+:: Walk with Sam [mini-scene] {"position":"800,775","size":"100,100"}
+You take the food from your father and head down the street to the Wilkins' house. You ascend the front steps and ring the doorbell. After a moment, Sam answers in his pajamas and starts when he sees you dressed for school.
+
+"Crap! I overslept! Mom said you'd be bringing food and I thought I set an alarm. Give me just a second, I'll get dressed and I can eat on the way"
+
+<<set $sustainabilityScore += 3>>
+
+[[Head to school->At school]]
+
+
+:: Young Adulthood [Young-Adult] {"position":"600,925","size":"100,100"}
+You wake up at home, in the middle of the autumn. You stretch, and shield your eyes from the sun streaming in through your window. You hop out of bed and head to the restroom.
+
+
+[[Use the restroom and wash your hands|College or Career]]
+[[Take a shower and proceed downstairs|College or Career]]
+[[Wash your face and proceed downstairs|College or Career]]
+
+
+:: finish eating [School-Age] {"position":"600,650","size":"100,100"}
+You finish eating and help her wash the dishes, as your father comes downstairs holding your baby sibling. He sets the baby in a high chair, and takes your place at the sink, telling you to go get ready for school.
+
+<<set $sustainabilityScore to 10>>
+
+[[Go get dressed]] 
